@@ -10,6 +10,8 @@
             //FindTimesNumberAppearInArray(array,5);
             //Console.WriteLine(FindMajorNumberOfNeighborsPositionInIndex(array,4).ToString());
             //Console.WriteLine(FindFirstIndexElementThatBeMajorThanNeighbors(array));
+            //Console.WriteLine(reverseNumber(55.23m));
+
 
             Console.ReadLine();
         }
@@ -156,6 +158,26 @@
 
             return indexNumber;
 
+        }
+
+        public static decimal reverseNumber(decimal number)
+        {
+            //Variable
+            decimal reverseNumber;
+            //Convierto el decimal en tipo string
+            string numberToString = number.ToString();
+            //Lo convierto en un array de caracteres
+            char[] numberInvertir = numberToString.ToCharArray();
+            //Invierto los valores de ese array de caracteres
+            Array.Reverse(numberInvertir);
+
+            //Vuelvo a repetir proceso a string para llevarlo a su tipo original
+            string cadenaInvertida = new string(numberInvertir);
+            //finalmente convierto el valor a decimal
+            reverseNumber = decimal.Parse(cadenaInvertida);
+
+
+            return reverseNumber;
         }
 
     }
