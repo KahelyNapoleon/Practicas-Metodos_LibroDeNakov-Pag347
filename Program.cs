@@ -1,4 +1,6 @@
-﻿namespace MetodosPracticasNakov
+﻿using System.ComponentModel;
+
+namespace MetodosPracticasNakov
 {
     internal class Program
     {
@@ -12,6 +14,12 @@
             //Console.WriteLine(FindFirstIndexElementThatBeMajorThanNeighbors(array));
             //Console.WriteLine(reverseNumber(55.23m));
 
+            int[] arr = SumOfTwoVeryLongNumbers(13101, 24422);
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.Write($"{arr[i]} ");
+            }
 
             Console.ReadLine();
         }
@@ -179,6 +187,73 @@
 
             return reverseNumber;
         }
+
+        public static int[] SumOfTwoVeryLongNumbers(long number1 , long number2)
+        {
+            //Write a method that calculates the sum of two very long positive integer numbers.
+            //The numbers are represented as array digits and the last digit(the ones) is stored 
+            //in the array at index 0.Make the method work for all numbers with length up to 10,000 digits.
+
+            //Variables
+            //1) Convertir los numeros a un array de enteros
+            int[] num1 = number1.ToString().Select(digito => int.Parse(digito.ToString())).ToArray();
+            int[] num2 = number2.ToString().Select(digito => int.Parse(digito.ToString())).ToArray();
+            //2)Asignar array de resultado 
+            int[] result = new int[num2.Length + num1.Length];
+
+            int decena = 0;
+            int[] decenaArray = new int[2];
+            //Procedimiento:
+            //1) Sumar los indices de cada array e ir sumando la unidad del resultado en caso
+            // que result > 9
+
+            for (int i = 0; i < num1.Length;i++)
+            {
+                if (num1[i] + num2[i] > 9)
+                {
+                    //El resultado debe almacenarse por digito en un array
+                    decena = num1[i] + num2[i];
+                    decenaArray = ConvertirEnArray(decena);
+                    
+                    //El resultado debe ingresarse en el array de resultado
+                    //La decena en el indice = i del array de resultado
+                    //y la unidad en la siguiente evaluescion de suma de arrays de resultados
+                    if(i +1 == num1.Length)
+                    {
+                        result[i] = decenaArray[1];
+                        result[i + 1] = decenaArray[0];
+                    }
+                    else
+                    {
+                        num1[i + 1] = num1[i + 1] + decenaArray[0];
+                    }
+                    
+
+                    //La unidad del resultado se almacena en el indice i del array de resultado
+                    result[i] = decenaArray[1];
+
+                }
+                else
+                {
+                    //Si el resultaod de la suma de ambos digitos no supera a 9
+                    // se alamcena la unidad en el array de resultado
+                    result[i] = num1[i] + num2[i];
+                }
+
+            }
+            
+            return result;
+       
+
+
+        }
+        public static int[] ConvertirEnArray(long number)
+        {
+            int[] array = number.ToString().Select(digito => int.Parse(digito.ToString())).ToArray();
+
+            return array;
+        }
+
 
     }
 }
