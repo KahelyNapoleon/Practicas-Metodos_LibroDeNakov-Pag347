@@ -14,12 +14,13 @@ namespace MetodosPracticasNakov
             //Console.WriteLine(FindFirstIndexElementThatBeMajorThanNeighbors(array));
             //Console.WriteLine(reverseNumber(55.23m));
 
-            int[] arr = SumOfTwoVeryLongNumbers(13101, 24422);
+            //int[] arr = SumOfTwoVeryLongNumbers(13101, 24422);
+            //for (int i = 0; i < arr.Length; i++)
+            //{
+            //    Console.Write($"{arr[i]} ");
+            //}
 
-            for (int i = 0; i < arr.Length; i++)
-            {
-                Console.Write($"{arr[i]} ");
-            }
+            //Console.WriteLine(Factorial(10));
 
             Console.ReadLine();
         }
@@ -228,7 +229,6 @@ namespace MetodosPracticasNakov
                         num1[i + 1] = num1[i + 1] + decenaArray[0];
                     }
                     
-
                     //La unidad del resultado se almacena en el indice i del array de resultado
                     result[i] = decenaArray[1];
 
@@ -247,6 +247,24 @@ namespace MetodosPracticasNakov
 
 
         }
+
+        public static long Factorial(int number)
+        {
+            long result = 0;
+            result = number;
+
+            while(number > 1)
+            {
+                number--;
+                result *= number;
+            }
+
+            return result; 
+        }
+
+
+
+        //Metodos Auxiliares
         public static int[] ConvertirEnArray(long number)
         {
             int[] array = number.ToString().Select(digito => int.Parse(digito.ToString())).ToArray();
