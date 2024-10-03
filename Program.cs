@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Numerics;
 
 namespace MetodosPracticasNakov
 {
@@ -20,7 +21,7 @@ namespace MetodosPracticasNakov
             //    Console.Write($"{arr[i]} ");
             //}
 
-            //Console.WriteLine(Factorial(10));
+            Console.WriteLine(Factorial(99));
 
             Console.ReadLine();
         }
@@ -248,9 +249,9 @@ namespace MetodosPracticasNakov
 
         }
 
-        public static long Factorial(int number)
+        public static BigInteger Factorial(int number)
         {
-            long result = 0;
+            BigInteger result = 0;
             result = number;
 
             while(number > 1)
