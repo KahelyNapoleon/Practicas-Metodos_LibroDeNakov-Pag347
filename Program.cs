@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Numerics;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Threading.Tasks;
 
 namespace MetodosPracticasNakov
 {
@@ -21,7 +23,11 @@ namespace MetodosPracticasNakov
             //    Console.Write($"{arr[i]} ");
             //}
 
-            Console.WriteLine(Factorial(99));
+            //Console.WriteLine(Factorial(99));
+
+            //Console.WriteLine(Average(array));
+
+            Console.WriteLine(SolveLinealEquation(5,2));
 
             Console.ReadLine();
         }
@@ -190,7 +196,7 @@ namespace MetodosPracticasNakov
             return reverseNumber;
         }
 
-        public static int[] SumOfTwoVeryLongNumbers(long number1 , long number2)
+        public static int[] SumOfTwoVeryLongNumbers(long number1, long number2)
         {
             //Write a method that calculates the sum of two very long positive integer numbers.
             //The numbers are represented as array digits and the last digit(the ones) is stored 
@@ -209,18 +215,18 @@ namespace MetodosPracticasNakov
             //1) Sumar los indices de cada array e ir sumando la unidad del resultado en caso
             // que result > 9
 
-            for (int i = 0; i < num1.Length;i++)
+            for (int i = 0; i < num1.Length; i++)
             {
                 if (num1[i] + num2[i] > 9)
                 {
                     //El resultado debe almacenarse por digito en un array
                     decena = num1[i] + num2[i];
                     decenaArray = ConvertirEnArray(decena);
-                    
+
                     //El resultado debe ingresarse en el array de resultado
                     //La decena en el indice = i del array de resultado
                     //y la unidad en la siguiente evaluescion de suma de arrays de resultados
-                    if(i +1 == num1.Length)
+                    if (i + 1 == num1.Length)
                     {
                         result[i] = decenaArray[1];
                         result[i + 1] = decenaArray[0];
@@ -229,7 +235,7 @@ namespace MetodosPracticasNakov
                     {
                         num1[i + 1] = num1[i + 1] + decenaArray[0];
                     }
-                    
+
                     //La unidad del resultado se almacena en el indice i del array de resultado
                     result[i] = decenaArray[1];
 
@@ -242,9 +248,9 @@ namespace MetodosPracticasNakov
                 }
 
             }
-            
+
             return result;
-       
+
 
 
         }
@@ -254,16 +260,71 @@ namespace MetodosPracticasNakov
             BigInteger result = 0;
             result = number;
 
-            while(number > 1)
+            while (number > 1)
             {
                 number--;
                 result *= number;
             }
-
-            return result; 
+            return result;
         }
 
 
+        //  Write a program that solves the following tasks:
+        //- Put the digits from an integer number into a reversed order.
+        //- Calculate the average of given sequence of numbers.
+        //- Solve the linear equation a* x + b = 0.
+        //Create appropriate methods for each of the above tasks.
+        //Make the program show a text menu to the user. By choosing an option of that menu, the user will be able to choose which task to be invoked.
+         public static void MultiTaskMethod()
+        {
+              
+        }
+
+        public static decimal Average(int[] Secuence)
+        {
+            decimal Number = 0;
+
+            for (int i = 0; i < Secuence.Length; i++)
+            {
+                Number += Secuence[i];
+            }
+
+            decimal Promedio = Number / Secuence.Length;
+
+            decimal redondeo = decimal.Round(Promedio, 2);
+
+            return redondeo;
+        }
+
+        public static int SolveLinealEquation(int a, int b)
+        {
+            // a2x + b = 0
+            int aSquad = a * a;
+            int aAfterEqual = 0;
+            int bAfterEqual = 0;
+            int result = 0;
+            if (b>=0)
+            {
+                bAfterEqual = b;
+            }
+            else
+            {
+                bAfterEqual = -b;
+            }
+            if(aSquad >= 0)
+            {
+                aAfterEqual = aSquad;
+            }
+            else{
+                aAfterEqual = -aSquad;
+            }
+
+
+            result = aAfterEqual + bAfterEqual;
+
+
+            return result;
+        }
 
         //Metodos Auxiliares
         public static int[] ConvertirEnArray(long number)
@@ -271,6 +332,11 @@ namespace MetodosPracticasNakov
             int[] array = number.ToString().Select(digito => int.Parse(digito.ToString())).ToArray();
 
             return array;
+        }
+
+        public static void Menu()
+        {
+
         }
 
 
