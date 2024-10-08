@@ -297,7 +297,7 @@ namespace MetodosPracticasNakov
                         break;
                     case 3:
                         Caso3();
-                        //Console.WriteLine("En Construccion...");
+                       
                         break;
                     case 4:
                     default:
