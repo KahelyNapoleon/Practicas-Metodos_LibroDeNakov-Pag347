@@ -296,19 +296,21 @@ namespace MetodosPracticasNakov
                         Caso2();
                         break;
                     case 3:
-                        Console.WriteLine("En Construccion...");
+                        Caso3();
+                        //Console.WriteLine("En Construccion...");
                         break;
                     case 4:
                     default:
                         break;
                 }
 
-                HashSet<int> opcionesValidas = new HashSet<int> {1,2,3};
+                HashSet<int> opcionesValidas = new HashSet<int> {1,2,3,4};
 
                 if (!opcionesValidas.Contains(eleccion))
                 {
-                    Console.WriteLine("Numero de Opcion Incorrecto \n Vuelve a intentarlo");
+                    Console.WriteLine("Numero de Opcion Incorrecto \n Vuelve a intentarlo \n");
                 }
+                
 
 
 
@@ -457,7 +459,11 @@ namespace MetodosPracticasNakov
         //Caso3
         public static void Caso3()
         {
-
+            Console.WriteLine("Ingrese los valores de a y b de la ecuacion lineal: a* x + b = 0.");
+            Console.Write("A = "); int a = int.Parse(Console.ReadLine());
+            Console.Write("B = "); int b = int.Parse(Console.ReadLine());
+            int result = SolveLinealEquation(a,b);
+            Console.WriteLine("El resultado es de:{0}",result);
         }
 
 
