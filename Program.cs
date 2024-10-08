@@ -27,9 +27,11 @@ namespace MetodosPracticasNakov
 
             //Console.WriteLine(Average(array));
 
-            Console.WriteLine(SolveLinealEquation(5,2));
+            //Console.WriteLine(SolveLinealEquation(5,2));
 
-            Console.ReadLine();
+            MultiTaskMethod();
+
+            //Console.ReadLine();
         }
 
         //Ejercicio 2 Libro de Nakov: Capitulo 9 Methods 
@@ -176,6 +178,7 @@ namespace MetodosPracticasNakov
 
         }
 
+        //- Put the digits from an integer number into a reversed order
         public static decimal reverseNumber(decimal number)
         {
             //Variable
@@ -277,9 +280,51 @@ namespace MetodosPracticasNakov
         //Make the program show a text menu to the user. By choosing an option of that menu, the user will be able to choose which task to be invoked.
          public static void MultiTaskMethod()
         {
-              
+            //Preugntar que opcion elejir
+            int eleccion = 0;
+            do
+            {
+                Menu();
+                eleccion = int.Parse(Console.ReadLine());
+                Console.WriteLine();
+                switch (eleccion)
+                {
+                    case 1:
+                        Console.WriteLine("Ingrese un numero para invertirlo");
+                        int numeroInvertir = int.Parse(Console.ReadLine());
+                        Console.WriteLine(reverseNumber(numeroInvertir));
+                        break;
+                    case 2:
+                        Console.WriteLine("Ingrese una Lista de numeros para Calcular su promedio");
+                        Console.WriteLine("En construccion... Proximamente...");
+                        Console.WriteLine();
+                        //Cuerpo For para ingresar valores de un array,,, Crear metodo static int[] CrearArray
+                        break;
+                    case 3:
+                        Console.WriteLine("Nada Por aca");
+                        break;
+                    case 4:
+                    default:
+                        break;
+                }
+
+                HashSet<int> opcionesValidas = new HashSet<int> {1,2,3};
+
+                if (!opcionesValidas.Contains(eleccion))
+                {
+                    Console.WriteLine("Numero de Opcion Incorrecto \n Vuelve a intentarlo");
+                }
+
+
+
+            } while (eleccion != 4);
+            
+
+
+
         }
 
+        //- Calculate the average of given sequence of numbers.
         public static decimal Average(int[] Secuence)
         {
             decimal Number = 0;
@@ -296,6 +341,7 @@ namespace MetodosPracticasNakov
             return redondeo;
         }
 
+        //- Solve the linear equation a* x + b = 0.
         public static int SolveLinealEquation(int a, int b)
         {
             // a2x + b = 0
@@ -334,8 +380,31 @@ namespace MetodosPracticasNakov
             return array;
         }
 
+
+        //Barra deMenu para Metodo MultiTask
         public static void Menu()
         {
+            //Variables
+            string[] Opciones =
+          {
+                "1-Put the digits from an integer number into a reversed order.",
+                "2-Average Of Given Secuence Of Numbers.",
+                "3-Solve the linear equation a* x + b = 0.",
+                "4-Salir"
+
+            };
+            //Procedure
+            Console.WriteLine("Elija una opcion:");
+
+            for (int i =0; i< Opciones.Length; i++)
+            {
+                Console.WriteLine(Opciones[i]);
+            }
+
+            //Console.WriteLine(Opciones[0]);
+            //Console.WriteLine(Opciones[1]);
+            //Console.WriteLine(Opciones[2]);
+            //Console.WriteLine(Opciones[3]);
 
         }
 
