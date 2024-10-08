@@ -271,6 +271,55 @@ namespace MetodosPracticasNakov
             return result;
         }
 
+        //- Calculate the average of given sequence of numbers.
+        public static decimal Average(int[] Secuence)
+        {
+            decimal Number = 0;
+
+            for (int i = 0; i < Secuence.Length; i++)
+            {
+                Number += Secuence[i];
+            }
+
+            decimal Promedio = Number / Secuence.Length;
+
+            decimal redondeo = decimal.Round(Promedio, 2);
+
+            return redondeo;
+        }
+
+        //- Solve the linear equation a* x + b = 0.
+        public static int SolveLinealEquation(int a, int b)
+        {
+            // a2x + b = 0
+            int aSquad = a * a;
+            int aAfterEqual = 0;
+            int bAfterEqual = 0;
+            int result = 0;
+            if (b >= 0)
+            {
+                bAfterEqual = b;
+            }
+            else
+            {
+                bAfterEqual = -b;
+            }
+            if (aSquad >= 0)
+            {
+                aAfterEqual = aSquad;
+            }
+            else
+            {
+                aAfterEqual = -aSquad;
+            }
+
+
+            result = aAfterEqual + bAfterEqual;
+
+
+            return result;
+        }
+
 
         //  Write a program that solves the following tasks:
         //- Put the digits from an integer number into a reversed order.
@@ -278,7 +327,7 @@ namespace MetodosPracticasNakov
         //- Solve the linear equation a* x + b = 0.
         //Create appropriate methods for each of the above tasks.
         //Make the program show a text menu to the user. By choosing an option of that menu, the user will be able to choose which task to be invoked.
-         public static void MultiTaskMethod()
+        public static void MultiTaskMethod()
         {
             //Preugntar que opcion elejir
             int eleccion = 0;
@@ -321,53 +370,7 @@ namespace MetodosPracticasNakov
 
         }
 
-        //- Calculate the average of given sequence of numbers.
-        public static decimal Average(int[] Secuence)
-        {
-            decimal Number = 0;
-
-            for (int i = 0; i < Secuence.Length; i++)
-            {
-                Number += Secuence[i];
-            }
-
-            decimal Promedio = Number / Secuence.Length;
-
-            decimal redondeo = decimal.Round(Promedio, 2);
-
-            return redondeo;
-        }
-
-        //- Solve the linear equation a* x + b = 0.
-        public static int SolveLinealEquation(int a, int b)
-        {
-            // a2x + b = 0
-            int aSquad = a * a;
-            int aAfterEqual = 0;
-            int bAfterEqual = 0;
-            int result = 0;
-            if (b>=0)
-            {
-                bAfterEqual = b;
-            }
-            else
-            {
-                bAfterEqual = -b;
-            }
-            if(aSquad >= 0)
-            {
-                aAfterEqual = aSquad;
-            }
-            else{
-                aAfterEqual = -aSquad;
-            }
-
-
-            result = aAfterEqual + bAfterEqual;
-
-
-            return result;
-        }
+       
 
 
 
