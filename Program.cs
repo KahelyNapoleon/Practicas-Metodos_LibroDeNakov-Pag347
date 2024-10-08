@@ -290,18 +290,13 @@ namespace MetodosPracticasNakov
                 switch (eleccion)
                 {
                     case 1:
-                        Console.WriteLine("Ingrese un numero para invertirlo");
-                        int numeroInvertir = int.Parse(Console.ReadLine());
-                        Console.WriteLine(reverseNumber(numeroInvertir));
+                        Caso1();
                         break;
                     case 2:
-                        Console.WriteLine("Ingrese una Lista de numeros para Calcular su promedio");
-                        Console.WriteLine("En construccion... Proximamente...");
-                        Console.WriteLine();
-                        //Cuerpo For para ingresar valores de un array,,, Crear metodo static int[] CrearArray
+                        Caso2();
                         break;
                     case 3:
-                        Console.WriteLine("Nada Por aca");
+                        Console.WriteLine("En Construccion...");
                         break;
                     case 4:
                     default:
@@ -372,6 +367,11 @@ namespace MetodosPracticasNakov
             return result;
         }
 
+
+
+
+
+
         //Metodos Auxiliares
         public static int[] ConvertirEnArray(long number)
         {
@@ -405,6 +405,58 @@ namespace MetodosPracticasNakov
             //Console.WriteLine(Opciones[1]);
             //Console.WriteLine(Opciones[2]);
             //Console.WriteLine(Opciones[3]);
+
+        }
+
+        //Metodo para crear un array de enteros
+        public static int[] CrearArrayDeEnteros(int largoArray)
+        {
+            //Variables
+            int[] array = new int[largoArray];
+
+            if(largoArray > 1)
+            {
+                Console.WriteLine($"Ingrese los {largoArray} valores:");
+                for (int i = 0; i < largoArray; i++)
+                {
+                    Console.Write($"Ingrese array[{i}]:");
+                    array[i] = int.Parse(Console.ReadLine());
+                    //Console.WriteLine();
+                }
+            }
+            else
+            {
+                //Retorna Array con todos sus valores igual a cero
+                return array;
+            }
+            return array;
+        }
+
+
+        //METODOS PARA LOS PROCEDIMIENTOS DE CADA OPCION EN MULTITASKMETHOD
+
+        //Caso1
+        public static void Caso1()
+        {
+            Console.WriteLine("Ingrese un numero para invertirlo");
+            int numeroInvertir = int.Parse(Console.ReadLine());
+            Console.WriteLine(reverseNumber(numeroInvertir));
+        }
+
+        //Caso2
+        public static void Caso2()
+        {
+            Console.WriteLine("Ingrese Cantidad de numeros a promediar");
+            int largo = int.Parse(Console.ReadLine());
+            int[] arrayPromedio = CrearArrayDeEnteros(largo);
+            Console.Write("El promedio de los {0} numeros es de:", largo);
+            Console.Write(Average(arrayPromedio));
+            Console.WriteLine();
+        }
+
+        //Caso3
+        public static void Caso3()
+        {
 
         }
 
